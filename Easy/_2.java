@@ -22,9 +22,27 @@ public class _2 {
         return (secondMax== Integer.MIN_VALUE) ? -1: secondMax;
     }
 
+    // More optimal:
+    public static int secondLargestElementOptimal(int[] nums) {
+        if(nums.length== 1) return -1;
+
+        int max= nums[0];
+        int secondMax= Integer.MIN_VALUE;
+
+        for(int i=1; i<nums.length; i++){
+            if(nums[i]> max) {
+                secondMax= max;
+                max= nums[i];
+            } else if (nums[i]!=max) {
+                secondMax= Math.max(secondMax, nums[i]);
+            } else {}
+        }
+        return (secondMax== Integer.MIN_VALUE) ? -1: secondMax;
+    }
+
     static void main(String[] args) {
-        int result= secondLargestElement(new int []{-5, -2, -8});
+//        int result= secondLargestElement(new int []{8, 8, 7, 6, 5});
+        int result= secondLargestElementOptimal(new int []{10, 10, 10, 10});
         System.out.println(result);
-//        System.out.println(Integer.MIN_VALUE);
     }
 }
