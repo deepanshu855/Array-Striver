@@ -84,8 +84,65 @@ public class _9 {
         return union;
     }
 
+    // Intersection Brute- {Visited array concept};
+    static int[] intersectionArray(int[] nums1, int[] nums2){
+        int[] visited= new int[nums2.length];
+        List<Integer> list= new ArrayList<>();
+
+        for(int i=0; i< nums1.length; i++){
+            for(int j=0; j< nums2.length; j++){
+                if(nums1[i]== nums2[j] && visited[j]== 0){
+                    list.add(nums1[i]);
+                    visited[j]=1;
+                    break;
+                }
+                if(nums2[j]>nums1[i]) break;
+            }
+        }
+
+        int i=0;
+        int[] ans= new int[list.size()];
+        for (var it: list){
+            ans[i]= it;
+            i++;
+        }
+
+        return ans;
+    }
+
+    // Intersection optimal
+    static int[] intersectionArrayOptimal(int[] nums1, int[] nums2){
+        int i=0;
+        int j=0;
+
+        List<Integer> list= new ArrayList<>();
+
+        while(i< nums1.length && j< nums2.length){
+            if(nums1[i]== nums2[j]){
+                list.add(nums1[i]);
+                j++;
+            }
+            if(nums1[i]> nums2[j]) {
+                j++;
+            }
+            i++;
+        }
+
+        i=0;
+        int[] ans= new int[list.size()];
+        for (var it: list){
+            ans[i]= it;
+            i++;
+        }
+
+        return ans;
+    }
+
     static void main(String[] args) {
-        int[] union= unionArray(new int[]{3, 4, 6, 7, 9, 9}, new int[]{1, 5, 7, 8, 8});
-        System.out.println(Arrays.toString(union));
+//        int[] union= unionArray(new int[]{3, 4, 6, 7, 9, 9}, new int[]{1, 5, 7, 8, 8});
+//        System.out.println(Arrays.toString(union));
+//        int[] intersection= intersectionArrayOptimal(new int[]{3, 4, 6, 7, 9, 9}, new int[]{1, 5, 7, 8, 8});
+        int[] intersection= intersectionArray(new int[]{3, 4, 6, 7, 9, 9}, new int[]{1, 5, 7, 8, 8});
+        System.out.println(Arrays.toString(intersection));
     }
 }
