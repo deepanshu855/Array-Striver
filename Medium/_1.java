@@ -4,20 +4,43 @@ package Medium;
 //You may assume that each input would have exactly one solution, and you may not use the same element twice.
 //You can return the answer in any order.
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class _1 {
-    public static void twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> hm= new HashMap<>();
 
-        int j=0;
         for(int i=0; i<nums.length; i++){
-            hm.put(nums[i], target-nums[i]);
+            if(hm.containsKey(target-nums[i])){
+                return new int[]{hm.get(target-nums[i]), i};
+            }
+            hm.put(nums[i], i);
         }
+        return null;
+    }
+
+    // Variety 1- if we just need to return sum exist or not. 2 Pointer approach.
+    public static boolean twoSum1(int [] nums, int target){
+        int j=nums.length-1;
+        int i=0;
+        Arrays.sort(nums);
+        while(i<j){
+            if(nums[i]+nums[j]== target) return true;
+            if(nums[i]+nums[j]<target){
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return false;
     }
 
     static void main(String[] args) {
-        twoSum(new int[]{2,7,11,15}, 9);
+        int[] result= twoSum(new int[]{3,2,4}, 6);
+        System.out.println(Arrays.toString(result));
+        boolean ans= twoSum1(new int[]{3,2,4}, 6);
+        System.out.println(ans);
     }
 }
