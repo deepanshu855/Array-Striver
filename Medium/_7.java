@@ -8,7 +8,7 @@ package Medium;
 // 3. The rearranged array begins with a positive integer.
 // 4. Return the modified array after rearranging the elements to satisfy the aforementioned conditions.
 
-public class _6 {
+public class _7 {
     public static int[] rearrangeArray(int[] nums) {
         int[] result= new int[nums.length];
         int j=0;
