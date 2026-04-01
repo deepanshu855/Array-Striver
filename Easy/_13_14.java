@@ -8,17 +8,12 @@ public class _13_14 {
     // Brute force
     public static int longestSubarrayBrute(int[] nums, int k) {
         int result=0;
-//        int flag=0;
-
         for(int i=0; i<nums.length; i++){
             int sum=0;
-//            int count=0;
             for(int j=i; j<nums.length; j++){
                 sum+=nums[j];
-//                count++;
                 if(sum== k) {
                     result= Math.max(result, j-i+1);
-//                    flag=1;
                     break;
                 }
                 if(sum> k) break;
