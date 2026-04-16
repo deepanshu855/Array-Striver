@@ -68,7 +68,7 @@ public class _13_14 {
 
     static void main(String[] args) {
 //        int result= longestSubarrayBrute(new int[]{0, 5, 2, 7, 1, 9}, 8);
-        int result= longestSubarrayPositive(new int[]{1,2,3,1,1,1,1,3,3}, 6);
+        int result= longestSubarrayOptimal(new int[]{10, 5, 2, 7, 1, 9}, 15);
         System.out.println(result);
     }
 }
