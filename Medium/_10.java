@@ -54,7 +54,7 @@ public class _10 {
             if(nums[i]-1== lastValue){
                 count++;
                 lastValue= nums[i];
-            } else if (nums[i]!= lastValue){
+            } else if (nums[i]!= lastValue){ //Current number is NOT consecutive, but also NOT duplicate
                 count=1;
                 lastValue= nums[i]; //1
             }
